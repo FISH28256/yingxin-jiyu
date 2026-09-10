@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>致新机电人 · 2026级迎新青春寄语</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background: radial-gradient(120% 90% at 50% 0%, #16203a 0%, #0a0e1a 62%, #070a12 100%);
+    color: #e8edf6;
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 18px 64px;
+  }
+  .head { text-align: center; margin-bottom: 36px; }
+  .bolt {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 64px; height: 64px; margin-bottom: 18px;
+    color: #facc15; font-size: 40px;
+    filter: drop-shadow(0 0 18px rgba(250,204,21,.45));
+  }
+  .title { font-size: 34px; font-weight: 700; letter-spacing: 4px; color: #fff; }
+  .sub { margin-top: 12px; font-size: 14px; letter-spacing: 3px; color: rgba(226,232,240,.78); }
+  .line {
+    width: 96px; height: 2px; margin: 20px auto 0;
+    background: linear-gradient(90deg, transparent, rgba(250,204,21,.75), transparent);
+  }
+  .tip {
+    margin-bottom: 26px; padding: 10px 18px; border-radius: 999px;
+    background: rgba(250,204,21,.10); border: 1px solid rgba(250,204,21,.30);
+    font-size: 13px; color: #fde68a; letter-spacing: 1px;
+  }
+  .grid {
+    width: 100%; max-width: 560px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  }
+  .card {
+    display: block; text-decoration: none;
+    padding: 16px 14px;
+    background: linear-gradient(160deg, rgba(38,52,90,.85), rgba(20,28,50,.85));
+    border: 1px solid rgba(148,163,184,.22);
+    border-radius: 14px;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .card:active { transform: scale(.97); border-color: rgba(250,204,21,.6); }
+  .no { font-size: 15px; font-weight: 700; color: #facc15; letter-spacing: 2px; }
+  .range { margin-top: 5px; font-size: 12px; color: rgba(226,232,240,.72); letter-spacing: 1px; }
+  .foot { margin-top: 40px; font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,.4); text-align: center; line-height: 1.9; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="bolt">⚡</div>
+    <div class="title">致新机电人</div>
+    <div class="sub">2026 级迎新 · 青春寄语</div>
+    <div class="line"></div>
+  </div>
+  <div class="tip">共 130 条寄语 · 请选择一组查看</div>
+  <div class="grid" id="grid"></div>
+  <div class="foot">重庆机电职业技术大学 · 电气与电子工程学院<br>愿你在这里，遇见更好的自己</div>
+<script>
+  var pages = [];
+  for (var i = 1; i <= 26; i++) {
+    var a = (i - 1) * 5 + 1, b = i * 5;
+    pages.push({ no: String(i).padStart(2, "0"), range: "第 " + a + "–" + b + " 条", href: "2026寄语_" + String(i).padStart(2, "0") + ".html" });
+  }
+  var g = document.getElementById("grid");
+  pages.forEach(function (p) {
+    var c = document.createElement("a");
+    c.className = "card"; c.href = p.href;
+    c.innerHTML = '<div class="no">' + p.no + '</div><div class="range">' + p.range + "</div>";
+    g.appendChild(c);
+  });
+</script>
+</body>
+</html>
